@@ -4,6 +4,7 @@ namespace Repaso
     {
         List<Empleado> empleados = new List<Empleado>();
         List<Asistencia> asistencias = new List<Asistencia>();
+        List <Sueldos> sueldos = new List<Sueldos>();
         public Form1()
         {
             InitializeComponent();
@@ -59,8 +60,40 @@ namespace Repaso
         }
         private void Calcular_Click_1(object sender, EventArgs e)
         {
+            for (int i = 0; i < empleados.Count; i++)
+            {
+                for (int j = 0; j < asistencias.Count; j++)
+                {
+                    if (empleados[i].NoEmpleado == asistencias[j].NoEmpleado)
+                    {
+                        Sueldos sueldo = new Sueldos();
+                        sueldo.NoEmpleado = empleados[i].NoEmpleado;
+                        sueldo.Nombre = empleados[i].Nombre;
+                        sueldo.SueldoMes = empleados[i].SueldoHora * asistencias[j].HorasMes;
+
+                        sueldos.Add(sueldo);
+                    }
+                }
+                comboBoxEmpleado.Items.Add(empleados[i].Nombre); //AGREGO LOS NOMBRES DE LOS EMPLEADOS A EL COMBOBOX PARA QUE EL USUARIO SELECCIONE
+            }
+            dataGridView3.DataSource = sueldos;
+            dataGridView3.Refresh();
+            
+                
+        }
+        private void buttonVisualizar_Click(object sender, EventArgs e)
+        {
+            int empl;                                                   //VARIABLE DE TIPO INT 
+            empl = comboBoxEmpleado.SelectedIndex;                      //OBTENGO EMPLEADO
+            textBoxSueldo.Text = (sueldos[empl].SueldoMes).ToString(); //OBTENGO EL SUELDO DEL EMPLEADO SELECCIONADO
            
 
         }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        
     }
     }

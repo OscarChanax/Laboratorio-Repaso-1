@@ -59,19 +59,7 @@ namespace Repaso
         }
         private void Calcular_Click_1(object sender, EventArgs e)
         {
-            //for (int i = 0; i < empleados.Count; i++)
-            //{
-            //    for (int j = 0; j < asistencias.Count; j++)
-            //    {
-            //        if (empleados[i].NoEmpleados == asistencias[j].NoEmpleado)
-            //        {
-            //            Sueldos sueldo = new Sueldos();
-            //            sueldo.NoEmpleado = empleados[i].NoEmpleado;
-            //            sueldo.Nombre = empleados[i].Nombre;
-            //            sueldo.SueldoMes = empleados[i].SueldoHora * asistencias[j].HorasMes;
-            //        }
-            //    }
-            //}
+           
 
         }
     }
